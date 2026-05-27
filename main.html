@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>دعوة زفاف محمد & غصون</title>
+
+  <!-- Persian / Arabic Elegant Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#ffffff;
+      color:#17454d;
+      overflow-x:hidden;
+      font-family:'Aref Ruqaa', serif;
+      position:relative;
+    }
+
+    /* ================= FLOATING ICONS ================= */
+
+    .floating-icons{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      overflow:hidden;
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .floating-icons span{
+      position:absolute;
+      bottom:-50px;
+      opacity:0.3;
+      animation:floatIcons linear infinite;
+    }
+
+    .countdown-icons span{
+      color:#efb5ab;
+    }
+
+    .message-icons span{
+      color:#efb5ab;
+    }
+
+    @keyframes floatIcons{
+
+      0%{
+        transform:translateY(0) rotate(0deg) scale(0.8);
+        opacity:0;
+      }
+
+      10%{
+        opacity:0.25;
+      }
+
+      50%{
+        opacity:0.5;
+      }
+
+      100%{
+        transform:translateY(-120vh) rotate(360deg) scale(1.2);
+        opacity:0;
+      }
+
+    }
+
+    /* ================= GENERAL ================= */
+
+    section{
+      width:100%;
+      padding:100px 20px;
+      position:relative;
+      z-index:2;
+    }
+
+    h2{
+      text-align:center;
+      font-size:58px;
+      margin-bottom:25px;
+      color:#17454d;
+      font-weight:700;
+      line-height:1.6;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero{
+      height:100vh;
+      background:
+      linear-gradient(rgba(23,69,77,0.45), rgba(23,69,77,0.45)),
+      url("background.jpg");
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:500px;
+      height:500px;
+      border:1px solid rgba(239,181,171,0.35);
+      border-radius:50%;
+      animation:pulse 6s infinite;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      padding:60px 40px;
+      border:1px solid rgba(239,181,171,0.35);
+      background:rgba(255,255,255,0.18);
+      backdrop-filter:blur(8px);
+      animation:fadeUp 2s ease;
+      max-width:750px;
+      border-radius:25px;
+      box-shadow:0 10px 35px rgba(0,0,0,0.08);
+    }
+
+    .hero h1{
+      font-size:95px;
+      color:#ffffff;
+      font-weight:700;
+      line-height:1.5;
+      animation:glow 3s infinite alternate;
+    }
+
+    .hero p{
+      margin-top:15px;
+      font-size:30px;
+      line-height:2;
+      color:#efb5ab;
+    }
+
+    .date{
+      margin-top:35px;
+      font-size:34px;
+      line-height:2;
+      color:#ffffff;
+    }
+
+    /* ================= COUNTDOWN ================= */
+
+    .countdown{
+      background:#cdcdcd;
+      text-align:center;
+      color:#17454d;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .countdown-container{
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      flex-wrap:wrap;
+      margin-top:50px;
+    }
+
+    .box{
+      width:180px;
+      padding:35px 20px;
+      border-radius:25px;
+      background:rgba(239,181,171,0.28);
+      border:1px solid rgba(239,181,171,0.35);
+      transition:0.5s;
+      position:relative;
+      overflow:hidden;
+      box-shadow:0 8px 25px rgba(0,0,0,0.05);
+    }
+
+    .box::before{
+      content:"";
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:linear-gradient(45deg, transparent, rgba(255,255,255,0.7), transparent);
+      top:-100%;
+      left:-100%;
+      transition:0.6s;
+    }
+
+    .box:hover::before{
+      top:100%;
+      left:100%;
+    }
+
+    .box:hover{
+      transform:translateY(-12px) scale(1.03);
+      box-shadow:0 0 30px rgba(239,181,171,0.45);
+    }
+
+    .box h3{
+      font-size:58px;
+      color:#17454d;
+      margin-bottom:10px;
+    }
+
+    .box span{
+      font-size:28px;
+      color:#17454d;
+    }
+
+    /* ================= LOCATION ================= */
+
+    .location{
+      text-align:center;
+      background:#ffffff;
+    }
+
+    .location-text{
+      color:#17454d;
+      font-size:34px;
+      line-height:2;
+      margin-bottom:40px;
+    }
+
+    .map{
+      max-width:950px;
+      margin:auto;
+      border-radius:25px;
+      overflow:hidden;
+      border:1px solid rgba(239,181,171,0.35);
+      box-shadow:0 0 30px rgba(0,0,0,0.08);
+      transition:0.5s;
+    }
+
+    .map:hover{
+      transform:scale(1.01);
+      box-shadow:0 0 40px rgba(239,181,171,0.25);
+    }
+
+    iframe{
+      width:100%;
+      height:450px;
+      border:0;
+    }
+    .location-header{
+      color: #efb5ab;
+    }
+
+    /* ================= MESSAGE ================= */
+
+    .message{
+      background:#efb5ab;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .message-content{
+      max-width:850px;
+      margin:auto;
+      font-size:38px;
+      line-height:2.3;
+      color:#17454d;
+      animation:fadeUp 2s ease;
+    }
+
+    .signature{
+      margin-top:45px;
+      font-size:55px;
+      color:#ffffff;
+      animation:glow 3s infinite alternate;
+      line-height:1.8;
+    }
+
+    .header{
+      color: #ffffff;
+    }
+
+    /* ================= ANIMATIONS ================= */
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes glow{
+      from{
+        text-shadow:0 0 10px rgba(239,181,171,0.25);
+      }
+
+      to{
+        text-shadow:0 0 25px rgba(239,181,171,0.7);
+      }
+    }
+
+    @keyframes pulse{
+      0%{
+        transform:scale(0.9);
+        opacity:0.25;
+      }
+
+      50%{
+        transform:scale(1);
+        opacity:0.08;
+      }
+
+      100%{
+        transform:scale(1.1);
+        opacity:0;
+      }
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media(max-width:768px){
+
+      section{
+        padding:80px 18px;
+      }
+
+      h2{
+        font-size:40px;
+      }
+
+      .hero h1{
+        font-size:52px;
+      }
+
+      .hero p{
+        font-size:24px;
+        line-height:1.8;
+      }
+
+      .date{
+        font-size:26px;
+      }
+
+      .hero-content{
+        padding:40px 25px;
+      }
+
+      .box{
+        width:140px;
+        padding:25px 15px;
+      }
+
+      .box h3{
+        font-size:42px;
+      }
+
+      .box span{
+        font-size:22px;
+      }
+
+      .location-text{
+        font-size:24px;
+      }
+
+      iframe{
+        height:300px;
+      }
+
+      .message-content{
+        font-size:28px;
+        line-height:2;
+      }
+
+      .signature{
+        font-size:38px;
+      }
+
+    }
+
+    /* ================= SCROLL ANIMATION ================= */
+
+    .hidden{
+      opacity:0;
+      transform:translateY(80px);
+      transition:all 1.2s ease;
+    }
+
+    .show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Background Music -->
+
+  <audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ================= HERO SECTION ================= -->
+
+  <section class="hero hidden">
+
+    <div class="hero-content">
+
+      <h1>
+        محمد عصمت <br>
+        & <br>
+        غصون البغدادي
+      </h1>
+
+      <p>
+        يتشرفان بدعوتكم لحضور حفل زفافهما
+      </p>
+
+      <div class="date">
+        الجمعة • ٥ يونيو ٢٠٢٦ <br>
+        الساعة ٦:٠٠ مساءً
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= COUNTDOWN ================= -->
+
+  <section class="countdown hidden">
+
+    <div class="floating-icons countdown-icons">
+
+      <span style="left:8%; animation-duration:12s;">❤</span>
+      <span style="left:20%; animation-duration:18s;">❀</span>
+      <span style="left:35%; animation-duration:14s;">❤</span>
+      <span style="left:50%; animation-duration:20s;">❀</span>
+      <span style="left:65%; animation-duration:15s;">❤</span>
+      <span style="left:80%; animation-duration:17s;">❀</span>
+
+    </div>
+
+    <h2> أقرب مما نتخيل🕊️</h2>
+
+    <div class="countdown-container">
+
+      <div class="box">
+        <h3 id="days">00</h3>
+        <span>يوم</span>
+      </div>
+
+      <div class="box">
+        <h3 id="hours">00</h3>
+        <span>ساعة</span>
+      </div>
+
+      <div class="box">
+        <h3 id="minutes">00</h3>
+        <span>دقيقة</span>
+      </div>
+
+      <div class="box">
+        <h3 id="seconds">00</h3>
+        <span>ثانية</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= LOCATION ================= -->
+
+  <section class="location hidden">
+
+    <h2 class="location-header">وجهتنا إلى ليلة لا تُنسى</h2>
+
+    <div class="location-text">
+      فيلا رافينلا <br>
+      العبور خط ١٠ ، القاهرة
+    </div>
+
+    <div class="map">
+
+      <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.544689657286!2d31.4897393!3d30.192997700000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14581b7e89a19ca9%3A0xaf2afbe95aa14beb!2sRavenala!5e0!3m2!1sen!2seg!4v1779891819850!5m2!1sen!2seg"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+    </div>
+
+  </section>
+
+  <!-- ================= MESSAGE ================= -->
+
+  <section class="message hidden">
+
+    <div class="floating-icons message-icons">
+
+      <span style="left:3%; animation-duration:12s; font-size:24px;">❤</span>
+      
+      <span style="left:18%; animation-duration:15s; font-size:22px;">❀</span>
+      <span style="left:27%; animation-duration:20s; font-size:32px;">❤</span>
+     
+      <span style="left:45%; animation-duration:17s; font-size:28px;">❀</span>
+      <span style="left:55%; animation-duration:14s; font-size:30px;">❤</span>
+      
+      <span style="left:74%; animation-duration:16s; font-size:28px;">❀</span>
+      <span style="left:82%; animation-duration:19s; font-size:30px;">❤</span>
+      
+      <span style="left:97%; animation-duration:22s; font-size:22px;">❀</span>
+
+    </div>
+
+    <h2 class="header">
+      بِسْمِ خالق الحب نبدأ دعوتنا إليكم
+    </h2>
+<br>
+    <div class="message-content">
+
+     من صدفة جميلة … إلى وعدٍ بالعُمر كله،كبرت مشاعرنا يومًا بعد يوم ، حتى أصبح الحلم حقيقة، والقلب وجد مكانه الآمن. 🤍
+      <br><br>
+
+     وفي ليلة استثنائية نحتفل ببداية رحلتنا سويًا، يسعدنا حضوركم ومشاركتكم الفرحة والدعوات الجميلة ، فأنتم دائمًا الجزء الأجمل من لحظاتنا السعيدة 🕊️
+      <div class="signature">
+        محمد عصمت <br>
+        & <br>
+        غصون البغدادي
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= COUNTDOWN SCRIPT ================= -->
+
+  <script>
+
+    const weddingDate = new Date("June 5, 2026 18:00:00").getTime();
+
+    const countdown = setInterval(function(){
+
+      const now = new Date().getTime();
+
+      const distance = weddingDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+
+      if(distance < 0){
+        clearInterval(countdown);
+      }
+
+    }, 1000);
+
+  </script>
+
+  <!-- ================= SCROLL ANIMATION ================= -->
+
+  <script>
+
+    const sections = document.querySelectorAll('.hidden');
+
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach((entry) => {
+
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+
+      });
+
+    }, {
+      threshold:0.2
+    });
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+  </script>
+
+</body>
+</html>
